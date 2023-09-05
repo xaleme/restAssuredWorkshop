@@ -12,8 +12,11 @@ public class ResponseTests {
 
     public static final String RATE_LIMIT = "https://api.github.com/rate_limit";
 
+
     @Test
     public void jsonPathReturnsMap() {
+        RestAssured.baseURI = "https://api.github.com/rate_limit";
+
         Response response = RestAssured.get(RATE_LIMIT);
 
         ResponseBody<?> body = response.body();
